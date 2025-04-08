@@ -64,7 +64,7 @@ void lee_cad(Tcad cad, int tam) {
 		c = getchar();
 	}
 	cad[j] = '\0';
-	// Limpiar buffer sobrante
+	
 	while (c != EOF && c != '\n') {
 		c = getchar();
 	}
@@ -74,7 +74,7 @@ void lee_cadena(Tcad cad) {
 	lee_cad(cad, TMC);
 }
 
-// Resto de funciones modificadas para usar lee_cadena
+
 void cargarSetManual(set *conjunto) {
 	Tcad input, elemento;
 	str cadena;
@@ -112,8 +112,6 @@ void cargarSetManual(set *conjunto) {
 	}
 }
 
-// [Las funciones menuPrincipal(), operarConjuntos() y mostrarResultado() 
-//  se mantienen igual que en la versión anterior]
 void operarConjuntos(set A, set B) {
 	Tcad elemento;
 	int opcion, existe, inclusion;
