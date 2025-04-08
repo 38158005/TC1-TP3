@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "TAD_set.h"
-#define TMC 100 // Aseg˙rate de que coincida con tu .h
+#define TMC 100 
 void menuPrincipal();
 void cargarSetManual(set *conjunto);
 void operarConjuntos(set A, set B);
@@ -36,7 +36,7 @@ int main() {
 			printf("Saliendo del programa...\n");
 			break;
 		default:
-			printf("OpciÛn inv·lida!\n");
+			printf("Opci√≥n inv√°lida!\n");
 		}
 	} while(opcion != 4);
 	
@@ -47,12 +47,12 @@ int main() {
 }
 
 void menuPrincipal() {
-	printf("\n=== MEN⁄ PRINCIPAL ===\n");
+	printf("\n=== MEN√ö PRINCIPAL ===\n");
 	printf("1. Cargar Conjunto A\n");
 	printf("2. Cargar Conjunto B\n");
 	printf("3. Operar con Conjuntos\n");
 	printf("4. Salir\n");
-	printf("Seleccione opciÛn: ");
+	printf("Seleccione opci√≥n: ");
 }
 void lee_cad(Tcad cad, int tam) {
 	char c;
@@ -84,7 +84,7 @@ void cargarSetManual(set *conjunto) {
 	printf("\n=== CARGA DE CONJUNTO ===\n");
 	printf("1. Ingresar elementos individuales\n");
 	printf("2. Ingresar cadena tokenizada\n");
-	printf("Seleccione mÈtodo: ");
+	printf("Seleccione m√©todo: ");
 	scanf("%d", &opcion);
 	getchar();
 	
@@ -108,12 +108,12 @@ void cargarSetManual(set *conjunto) {
 		cadena = load2(input);
 		*conjunto = strToSetToken(cadena, token);
 	} else {
-		printf("OpciÛn inv·lida!\n");
+		printf("Opci√≥n inv√°lida!\n");
 	}
 }
 
 // [Las funciones menuPrincipal(), operarConjuntos() y mostrarResultado() 
-//  se mantienen igual que en la versiÛn anterior]
+//  se mantienen igual que en la versi√≥n anterior]
 void operarConjuntos(set A, set B) {
 	Tcad elemento;
 	int opcion, existe, inclusion;
@@ -124,13 +124,13 @@ void operarConjuntos(set A, set B) {
 		printf("\n=== OPERACIONES CON CONJUNTOS ===\n");
 		printf("1. Mostrar Conjunto A\n");
 		printf("2. Mostrar Conjunto B\n");
-		printf("3. UniÛn (A ? B)\n");
-		printf("4. IntersecciÛn (A n B)\n");
+		printf("3. Uni√≥n (A ? B)\n");
+		printf("4. Intersecci√≥n (A n B)\n");
 		printf("5. Diferencia (A - B)\n");
 		printf("6. Verificar elemento\n");
-		printf("7. Verificar inclusiÛn\n");
+		printf("7. Verificar inclusi√≥n\n");
 		printf("8. Volver\n");
-		printf("Seleccione operaciÛn: ");
+		printf("Seleccione operaci√≥n: ");
 		scanf("%d", &opcion);
 		fflush(stdin);
 		
@@ -145,13 +145,13 @@ void operarConjuntos(set A, set B) {
 			break;
 		case 3:
 			resultado = unionConjuntos(A, B);
-			printf("\nUniÛn A ? B: ");
+			printf("\nUni√≥n A ? B: ");
 			mostrarSet(resultado);
 			liberarSet(resultado);
 			break;
 		case 4:
 			resultado = interseccionConjuntos(A, B);
-			printf("\nIntersecciÛn A n B: ");
+			printf("\nIntersecci√≥n A n B: ");
 			mostrarSet(resultado);
 			liberarSet(resultado);
 			break;
@@ -167,26 +167,26 @@ void operarConjuntos(set A, set B) {
 			busqueda = load2(elemento);
 			existe = perteneceElemento(A, busqueda);
 			printf("El elemento '%s' %s en el conjunto A\n", 
-				   elemento, existe ? "est·" : "NO est·");
+				   elemento, existe ? "est√°" : "NO est√°");
 			liberarStr(busqueda);
 			break;
 		case 7:
 			inclusion = estaIncluido(A, B);
-			printf("El conjunto A %s est· incluido en B\n",
+			printf("El conjunto A %s est√° incluido en B\n",
 				   inclusion ? "SI" : "NO");
 			break;
 		case 8:
-			printf("Volviendo al men˙ principal...\n");
+			printf("Volviendo al men√∫ principal...\n");
 			break;
 		default:
-			printf("OpciÛn inv·lida!\n");
+			printf("Opci√≥n inv√°lida!\n");
 		}
 	} while(opcion != 8);
 }
 
 void mostrarResultado(set resultado) {
 	if(resultado == NULL) {
-		printf("Conjunto vacÌo\n");
+		printf("Conjunto vac√≠o\n");
 	} else {
 		mostrarSet(resultado);
 	}
